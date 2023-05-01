@@ -12,7 +12,7 @@ import WebKit
 struct WebView: UIViewRepresentable {
  
     var url: URL
-    let authManager: AuthManager
+    let authManager: LoginViewModel
     @Binding var showWebView: Bool
     @Binding var showLoginPage: Bool
  
@@ -33,22 +33,21 @@ struct WebView: UIViewRepresentable {
     
     class WebViewCoordinator: NSObject, WKNavigationDelegate {
         var parent: WebView
-        let authManager: AuthManager
-        init(_ parent: WebView, _ authManager: AuthManager) {
+        let authManager: LoginViewModel
+        init(_ parent: WebView, _ authManager: LoginViewModel) {
             self.parent = parent
             self.authManager = authManager
         }
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             guard let urlStr = navigationAction.request.url?.absoluteString else { return }
-            //let urlToMatch = "https://josian.nl/"
-//            if let urlStr = navigationAction.request.url?.absoluteString, urlStr == urlToMatch {
-//                parent.showWebView = false
-//            }
-            if (authManager.getCodeFromUrl(url: urlStr)) {
-                parent.showWebView = false
-                parent.showLoginPage = false
-            }
+            
+            authManager.loginAttempt(url: urlStr, completion: {success in
+                if (success) {
+                    self.parent.showWebView = false
+                    self.parent.showLoginPage = false
+                }
+            })
             decisionHandler(.allow)
         }
         
@@ -57,11 +56,21 @@ struct WebView: UIViewRepresentable {
 
 
 struct LoginView: View {
-    @State private var showWebView = false
+    @State var showWebView: Bool
     @Binding var showLoginPage: Bool
     
     let authManager: AuthManager
-    private let vm: LoginViewModel = LoginViewModel()
+    private let vm: LoginViewModel
+    
+    init(_showLoginPage: Binding<Bool>, _authManager: AuthManager) {
+        self._showLoginPage = _showLoginPage
+        self.authManager = _authManager
+        self.vm = LoginViewModel(authManager: _authManager)
+        _showWebView = State(initialValue: false)
+    }
+    
+   
+   
     
     
     var body: some View {
@@ -71,7 +80,7 @@ struct LoginView: View {
             Text("Login")
         }
         .sheet(isPresented: $showWebView) {
-            WebView(url: URL(string: authManager.getAuthorizationUrl())!, authManager: authManager, showWebView: $showWebView, showLoginPage: $showLoginPage)
+            WebView(url: authManager.getAuthorizationUrl(), authManager: vm, showWebView: $showWebView, showLoginPage: $showLoginPage)
         }
             
     }

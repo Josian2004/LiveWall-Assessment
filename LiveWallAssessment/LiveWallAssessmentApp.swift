@@ -9,13 +9,22 @@ import SwiftUI
 
 @main
 struct LiveWallAssessmentApp: App {
-    private let authManager: AuthManager = AuthManager()
+    private let authManager: AuthManager
+    private let profileRepo: ProfileRepository
+    private let profileService: ProfileService
+    
+    init() {
+        authManager = AuthManager()
+        profileRepo = ProfileRepository()
+        profileService = ProfileService(profileRepo: profileRepo)
+    }
+    
     @State private var showLoginPage: Bool = true
     
     var body: some Scene {
         WindowGroup {
             if (showLoginPage) {
-                LoginView(showLoginPage: $showLoginPage, authManager: authManager)
+                LoginView(_showLoginPage: $showLoginPage, _authManager: authManager)
             } else {
                 TabView {
                     HomeView()
@@ -23,7 +32,7 @@ struct LiveWallAssessmentApp: App {
                             Label("Home", systemImage: "house.fill")
                         }
                     
-                    ProfileView()
+                    ProfileView(_profileService: profileService, _authManager: authManager)
                         .tabItem {
                             Label("Profile", systemImage: "person.circle.fill")
                         }

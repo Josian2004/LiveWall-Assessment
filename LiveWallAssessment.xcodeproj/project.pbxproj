@@ -19,6 +19,12 @@
 		9E598FE029FDC20D00BDB6D6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FDF29FDC20D00BDB6D6 /* LoginView.swift */; };
 		9E598FE229FDC21700BDB6D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FE129FDC21700BDB6D6 /* LoginViewModel.swift */; };
 		9E598FE429FEAF5900BDB6D6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FE329FEAF5900BDB6D6 /* AuthManager.swift */; };
+		9E598FE929FFCBDE00BDB6D6 /* AuthResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FE829FFCBDE00BDB6D6 /* AuthResponses.swift */; };
+		9E598FEC29FFE4F700BDB6D6 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FEB29FFE4F700BDB6D6 /* ProfileRepository.swift */; };
+		9E598FEE29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FED29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift */; };
+		9E598FF029FFE58500BDB6D6 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */; };
+		9E598FF429FFF05400BDB6D6 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FF329FFF05400BDB6D6 /* ProfileService.swift */; };
+		9E598FF629FFF06100BDB6D6 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FF529FFF06100BDB6D6 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,12 @@
 		9E598FE329FEAF5900BDB6D6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9E598FE529FEB91200BDB6D6 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		9E598FE629FEB94000BDB6D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9E598FE829FFCBDE00BDB6D6 /* AuthResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponses.swift; sourceTree = "<group>"; };
+		9E598FEB29FFE4F700BDB6D6 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		9E598FED29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRemoteDatasource.swift; sourceTree = "<group>"; };
+		9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		9E598FF329FFF05400BDB6D6 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		9E598FF529FFF06100BDB6D6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +119,8 @@
 		9E598FC129FD49AC00BDB6D6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				9E598FE329FEAF5900BDB6D6 /* AuthManager.swift */,
+				9E598FF229FFF04700BDB6D6 /* Profile */,
+				9E598FF129FFF03E00BDB6D6 /* Auth */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -115,6 +128,7 @@
 		9E598FC229FD49D100BDB6D6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9E598FEA29FFE4ED00BDB6D6 /* Profile */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -161,6 +175,42 @@
 				9E598FE129FDC21700BDB6D6 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		9E598FE729FFCBD000BDB6D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FE829FFCBDE00BDB6D6 /* AuthResponses.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E598FEA29FFE4ED00BDB6D6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FEB29FFE4F700BDB6D6 /* ProfileRepository.swift */,
+				9E598FED29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift */,
+				9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9E598FF129FFF03E00BDB6D6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FE729FFCBD000BDB6D6 /* Models */,
+				9E598FE329FEAF5900BDB6D6 /* AuthManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9E598FF229FFF04700BDB6D6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FF329FFF05400BDB6D6 /* ProfileService.swift */,
+				9E598FF529FFF06100BDB6D6 /* Profile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +260,6 @@
 			);
 			mainGroup = 9E598FA629FD496300BDB6D6;
 			packageReferences = (
-				9E598FDB29FDBD8600BDB6D6 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 			);
 			productRefGroup = 9E598FB029FD496300BDB6D6 /* Products */;
 			projectDirPath = "";
@@ -239,15 +288,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E598FCB29FD4A3C00BDB6D6 /* ProfileView.swift in Sources */,
+				9E598FF029FFE58500BDB6D6 /* ProfileDTO.swift in Sources */,
+				9E598FEE29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift in Sources */,
 				9E598FCF29FD4BC500BDB6D6 /* DetailViewModel.swift in Sources */,
 				9E598FB329FD496300BDB6D6 /* LiveWallAssessmentApp.swift in Sources */,
+				9E598FEC29FFE4F700BDB6D6 /* ProfileRepository.swift in Sources */,
 				9E598FC929FD4A3200BDB6D6 /* DetailView.swift in Sources */,
 				9E598FCD29FD4BBA00BDB6D6 /* HomeViewModel.swift in Sources */,
 				9E598FC729FD4A2500BDB6D6 /* HomeView.swift in Sources */,
+				9E598FF629FFF06100BDB6D6 /* Profile.swift in Sources */,
 				9E598FE029FDC20D00BDB6D6 /* LoginView.swift in Sources */,
+				9E598FE929FFCBDE00BDB6D6 /* AuthResponses.swift in Sources */,
 				9E598FD129FD4BCF00BDB6D6 /* ProfileViewModel.swift in Sources */,
 				9E598FE229FDC21700BDB6D6 /* LoginViewModel.swift in Sources */,
 				9E598FE429FEAF5900BDB6D6 /* AuthManager.swift in Sources */,
+				9E598FF429FFF05400BDB6D6 /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +311,7 @@
 /* Begin XCBuildConfiguration section */
 		9E598FBB29FD496600BDB6D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E598FE529FEB91200BDB6D6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -316,6 +372,7 @@
 		};
 		9E598FBC29FD496600BDB6D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E598FE529FEB91200BDB6D6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -370,6 +427,7 @@
 		};
 		9E598FBE29FD496600BDB6D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E598FE529FEB91200BDB6D6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -400,6 +458,7 @@
 		};
 		9E598FBF29FD496600BDB6D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E598FE529FEB91200BDB6D6 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,17 +509,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9E598FDB29FDBD8600BDB6D6 /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Peter-Schorn/SpotifyAPI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 9E598FA729FD496300BDB6D6 /* Project object */;
 }
