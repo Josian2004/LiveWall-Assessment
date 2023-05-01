@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-    private let vm: HomeViewModel = HomeViewModel()
+    @ObservedObject private var vm: HomeViewModel
+    
+    init(_authManager: AuthManager, _songSerice: SongService) {
+        vm = HomeViewModel(_authManager: _authManager, _songService: _songSerice)
+    }
+    
     var body: some View {
         NavigationStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ScrollView(.vertical) {
+                ForEach(vm.songs) { song in
+                    SongView(song: song)
+                }
+            }
+            
+            
+        }.onAppear() {
+            vm.getLikedSongs()
         }
         
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

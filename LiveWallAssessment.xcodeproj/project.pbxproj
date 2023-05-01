@@ -25,6 +25,15 @@
 		9E598FF029FFE58500BDB6D6 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */; };
 		9E598FF429FFF05400BDB6D6 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FF329FFF05400BDB6D6 /* ProfileService.swift */; };
 		9E598FF629FFF06100BDB6D6 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FF529FFF06100BDB6D6 /* Profile.swift */; };
+		9E598FFA2A000C3800BDB6D6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FF92A000C3800BDB6D6 /* Song.swift */; };
+		9E598FFC2A000C4A00BDB6D6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FFB2A000C4A00BDB6D6 /* Artist.swift */; };
+		9E598FFF2A001A6100BDB6D6 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E598FFE2A001A6100BDB6D6 /* SongRepository.swift */; };
+		9E5990012A001ABE00BDB6D6 /* SongRemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5990002A001ABE00BDB6D6 /* SongRemoteDatasource.swift */; };
+		9E5990032A001AD600BDB6D6 /* SongDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5990022A001AD600BDB6D6 /* SongDTO.swift */; };
+		9E5990062A001AF500BDB6D6 /* ArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5990052A001AF500BDB6D6 /* ArtistDTO.swift */; };
+		9E59900A2A0046DD00BDB6D6 /* SongService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5990092A0046DD00BDB6D6 /* SongService.swift */; };
+		9E59900C2A005DEA00BDB6D6 /* LikedSongsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E59900B2A005DEA00BDB6D6 /* LikedSongsResponse.swift */; };
+		9E59900E2A0067CB00BDB6D6 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E59900D2A0067CB00BDB6D6 /* SongView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +60,15 @@
 		9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		9E598FF329FFF05400BDB6D6 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		9E598FF529FFF06100BDB6D6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		9E598FF92A000C3800BDB6D6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		9E598FFB2A000C4A00BDB6D6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		9E598FFE2A001A6100BDB6D6 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
+		9E5990002A001ABE00BDB6D6 /* SongRemoteDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRemoteDatasource.swift; sourceTree = "<group>"; };
+		9E5990022A001AD600BDB6D6 /* SongDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDTO.swift; sourceTree = "<group>"; };
+		9E5990052A001AF500BDB6D6 /* ArtistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDTO.swift; sourceTree = "<group>"; };
+		9E5990092A0046DD00BDB6D6 /* SongService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongService.swift; sourceTree = "<group>"; };
+		9E59900B2A005DEA00BDB6D6 /* LikedSongsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongsResponse.swift; sourceTree = "<group>"; };
+		9E59900D2A0067CB00BDB6D6 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +137,7 @@
 		9E598FC129FD49AC00BDB6D6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9E598FF72A000BFA00BDB6D6 /* Song */,
 				9E598FF229FFF04700BDB6D6 /* Profile */,
 				9E598FF129FFF03E00BDB6D6 /* Auth */,
 			);
@@ -128,6 +147,7 @@
 		9E598FC229FD49D100BDB6D6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9E598FFD2A001A4100BDB6D6 /* Song */,
 				9E598FEA29FFE4ED00BDB6D6 /* Profile */,
 			);
 			path = Data;
@@ -156,6 +176,7 @@
 			children = (
 				9E598FC629FD4A2500BDB6D6 /* HomeView.swift */,
 				9E598FCC29FD4BBA00BDB6D6 /* HomeViewModel.swift */,
+				9E59900D2A0067CB00BDB6D6 /* SongView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -188,9 +209,9 @@
 		9E598FEA29FFE4ED00BDB6D6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9E5990072A001B0000BDB6D6 /* DTOs */,
 				9E598FEB29FFE4F700BDB6D6 /* ProfileRepository.swift */,
 				9E598FED29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift */,
-				9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -207,10 +228,64 @@
 		9E598FF229FFF04700BDB6D6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9E5990082A001B4D00BDB6D6 /* Models */,
 				9E598FF329FFF05400BDB6D6 /* ProfileService.swift */,
-				9E598FF529FFF06100BDB6D6 /* Profile.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9E598FF72A000BFA00BDB6D6 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FF82A000C0F00BDB6D6 /* Models */,
+				9E5990092A0046DD00BDB6D6 /* SongService.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		9E598FF82A000C0F00BDB6D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FF92A000C3800BDB6D6 /* Song.swift */,
+				9E598FFB2A000C4A00BDB6D6 /* Artist.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E598FFD2A001A4100BDB6D6 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				9E5990042A001AE300BDB6D6 /* DTOs */,
+				9E598FFE2A001A6100BDB6D6 /* SongRepository.swift */,
+				9E5990002A001ABE00BDB6D6 /* SongRemoteDatasource.swift */,
+				9E59900B2A005DEA00BDB6D6 /* LikedSongsResponse.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		9E5990042A001AE300BDB6D6 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				9E5990022A001AD600BDB6D6 /* SongDTO.swift */,
+				9E5990052A001AF500BDB6D6 /* ArtistDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		9E5990072A001B0000BDB6D6 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FEF29FFE58500BDB6D6 /* ProfileDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		9E5990082A001B4D00BDB6D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E598FF529FFF06100BDB6D6 /* Profile.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,17 +365,26 @@
 				9E598FCB29FD4A3C00BDB6D6 /* ProfileView.swift in Sources */,
 				9E598FF029FFE58500BDB6D6 /* ProfileDTO.swift in Sources */,
 				9E598FEE29FFE51900BDB6D6 /* ProfileRemoteDatasource.swift in Sources */,
+				9E5990012A001ABE00BDB6D6 /* SongRemoteDatasource.swift in Sources */,
+				9E598FFF2A001A6100BDB6D6 /* SongRepository.swift in Sources */,
 				9E598FCF29FD4BC500BDB6D6 /* DetailViewModel.swift in Sources */,
 				9E598FB329FD496300BDB6D6 /* LiveWallAssessmentApp.swift in Sources */,
 				9E598FEC29FFE4F700BDB6D6 /* ProfileRepository.swift in Sources */,
+				9E59900A2A0046DD00BDB6D6 /* SongService.swift in Sources */,
 				9E598FC929FD4A3200BDB6D6 /* DetailView.swift in Sources */,
 				9E598FCD29FD4BBA00BDB6D6 /* HomeViewModel.swift in Sources */,
 				9E598FC729FD4A2500BDB6D6 /* HomeView.swift in Sources */,
 				9E598FF629FFF06100BDB6D6 /* Profile.swift in Sources */,
+				9E59900C2A005DEA00BDB6D6 /* LikedSongsResponse.swift in Sources */,
+				9E5990062A001AF500BDB6D6 /* ArtistDTO.swift in Sources */,
 				9E598FE029FDC20D00BDB6D6 /* LoginView.swift in Sources */,
 				9E598FE929FFCBDE00BDB6D6 /* AuthResponses.swift in Sources */,
+				9E598FFC2A000C4A00BDB6D6 /* Artist.swift in Sources */,
 				9E598FD129FD4BCF00BDB6D6 /* ProfileViewModel.swift in Sources */,
+				9E5990032A001AD600BDB6D6 /* SongDTO.swift in Sources */,
 				9E598FE229FDC21700BDB6D6 /* LoginViewModel.swift in Sources */,
+				9E598FFA2A000C3800BDB6D6 /* Song.swift in Sources */,
+				9E59900E2A0067CB00BDB6D6 /* SongView.swift in Sources */,
 				9E598FE429FEAF5900BDB6D6 /* AuthManager.swift in Sources */,
 				9E598FF429FFF05400BDB6D6 /* ProfileService.swift in Sources */,
 			);

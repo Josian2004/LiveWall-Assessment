@@ -10,13 +10,21 @@ import SwiftUI
 @main
 struct LiveWallAssessmentApp: App {
     private let authManager: AuthManager
+    
     private let profileRepo: ProfileRepository
     private let profileService: ProfileService
     
+    private let songRepo: SongRepository
+    private let songService: SongService
+    
     init() {
         authManager = AuthManager()
+        
         profileRepo = ProfileRepository()
         profileService = ProfileService(profileRepo: profileRepo)
+        
+        songRepo = SongRepository()
+        songService = SongService(songRepo: songRepo)
     }
     
     @State private var showLoginPage: Bool = true
@@ -27,7 +35,7 @@ struct LiveWallAssessmentApp: App {
                 LoginView(_showLoginPage: $showLoginPage, _authManager: authManager)
             } else {
                 TabView {
-                    HomeView()
+                    HomeView(_authManager: authManager, _songSerice: songService)
                         .tabItem {
                             Label("Home", systemImage: "house.fill")
                         }
