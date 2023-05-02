@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Artist {
+class Artist: Identifiable {
     let name: String
     let id: String
     

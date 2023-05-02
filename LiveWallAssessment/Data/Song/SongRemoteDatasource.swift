@@ -8,9 +8,9 @@
 import Foundation
 
 class SongRemoteDatasource {
-    func getSavedSongs(token: String, page: Int) async -> Data? {
+    func getSavedSongs(token: String, offset: Int) async -> Data? {
         return await withCheckedContinuation { continuation in
-            guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks?market=NL&limit=50&offset=\(page*50)") else {
+            guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks?market=NL&limit=50&offset=\(offset)") else {
                 continuation.resume(returning: nil)
                 return
             }
@@ -32,37 +32,37 @@ class SongRemoteDatasource {
         }
     }
     
-    func removeFromSavedSongs(token: String, songId: String) {
-        guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks") else {
+    func removeFromSavedSongs(token: String, songId: String) async {
+        guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks?ids=\(songId)") else {
             return
         }
         
         var request = URLRequest(url: requestUrl)
-        var components = URLComponents()
-        components.queryItems = [
-            URLQueryItem(name: "ids", value: songId)
-        ]
         request.httpMethod = "DELETE"
-        request.httpBody = components.query?.data(using: .utf8)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request)
+        let task = URLSession.shared.dataTask(with: request){data, _, error in
+            guard let _ = data, error == nil else {
+                print("Error: \(error!.localizedDescription)")
+                return
+            }
+        }
         task.resume()
     }
     
-    func addToSavedSongs(token: String, songId: String) {
-        guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks") else {
+    func addToSavedSongs(token: String, songId: String) async {
+        guard let requestUrl = URL(string:"https://api.spotify.com/v1/me/tracks?ids=\(songId)") else {
             return
         }
         
         var request = URLRequest(url: requestUrl)
-        var components = URLComponents()
-        components.queryItems = [
-            URLQueryItem(name: "ids", value: songId),
-        ]
         request.httpMethod = "PUT"
-        request.httpBody = components.query?.data(using: .utf8)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request)
+        let task = URLSession.shared.dataTask(with: request){data, _, error in
+            guard let _ = data, error == nil else {
+                print("Error: \(error!.localizedDescription)")
+                return
+            }
+        }
         task.resume()
     }
 }

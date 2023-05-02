@@ -15,7 +15,7 @@ struct ItemResponse: Codable {
 struct TrackResponse: Codable {
     let album: AlbumResponse?
     let artists: [ArtistResponse]?
-    let durationMS: Int?
+    let duration_ms: Int?
     let id: String
     let name: String
 }

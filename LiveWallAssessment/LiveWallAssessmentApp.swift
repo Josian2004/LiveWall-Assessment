@@ -37,7 +37,7 @@ struct LiveWallAssessmentApp: App {
                 TabView {
                     HomeView(_authManager: authManager, _songSerice: songService)
                         .tabItem {
-                            Label("Home", systemImage: "house.fill")
+                            Label("Liked", systemImage: "music.note")
                         }
                     
                     ProfileView(_profileService: profileService, _authManager: authManager)

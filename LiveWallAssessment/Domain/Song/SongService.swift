@@ -14,9 +14,17 @@ class SongService {
         self.songRepo = songRepo
     }
     
-    func getSavedSongs(token: String, page: Int) async -> [Song] {
+    func deleteFromSavedSongs(token:String, songId: String) async {
+        await songRepo.removeFromSavedSongs(token: token, songId: songId)
+    }
+    
+    func addToSavedSongs(token: String, songId: String) async {
+        await songRepo.addToSavedSongs(token: token, songId: songId)
+    }
+    
+    func getSavedSongs(token: String, offset: Int) async -> [Song] {
         var songs: [Song] = []
-        let songDTOs: [SongDTO] = await songRepo.getSavedSongs(token: token, page: page)
+        let songDTOs: [SongDTO] = await songRepo.getSavedSongs(token: token, offset: offset)
         songDTOs.forEach({songDTO in
             
             var artists: [Artist] = []

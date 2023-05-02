@@ -12,8 +12,8 @@ class SongRepository {
     
     typealias JSONStandard = [String: AnyObject]
     
-    func getSavedSongs(token: String, page: Int) async -> [SongDTO] {
-        guard let data: Data = await remote.getSavedSongs(token: token, page: page) else { return [] }
+    func getSavedSongs(token: String, offset: Int) async -> [SongDTO] {
+        guard let data: Data = await remote.getSavedSongs(token: token, offset: offset) else { return [] }
         do {
             var songs: [SongDTO] = []
             let likedSongsResponse: LikedSongsResponse = try JSONDecoder().decode(LikedSongsResponse.self, from: data)
@@ -30,7 +30,7 @@ class SongRepository {
                     id: item.track.id,
                     releaseDate: 0,
                     artists: artists,
-                    duration: (item.track.durationMS ?? 0)/1000)
+                    duration: (item.track.duration_ms ?? 0)/1000)
                 songs.append(song)
             })
             return songs
@@ -43,11 +43,11 @@ class SongRepository {
         
     }
     
-    func removeFromSavedSongs(token: String, songId: String) {
-        remote.removeFromSavedSongs(token: token, songId: songId)
+    func removeFromSavedSongs(token: String, songId: String) async {
+        await remote.removeFromSavedSongs(token: token, songId: songId)
     }
     
     func addToSavedSongs(token: String, songId: String) async {
-        remote.addToSavedSongs(token: token, songId: songId)
+        await remote.addToSavedSongs(token: token, songId: songId)
     }
 }
