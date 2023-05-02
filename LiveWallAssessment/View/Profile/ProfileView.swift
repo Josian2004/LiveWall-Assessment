@@ -16,22 +16,53 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                VStack(alignment: .leading) {
-                    Text(vm.displayName)
-                    Text(vm.country)
-                    Text(vm.product)
-                    Text(String(vm.followerCount))
-                    //AsyncImage(url: URL(string: vm.profileImageUrl)).frame(width: 20, height: 20)
-                    Spacer().frame(minHeight: 20)
+            VStack(alignment: .leading) {
+                HStack(alignment: .center) {
+                    AsyncImage(url: URL(string: vm.profileImageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .aspectRatio(1/1, contentMode: .fit)
+                            .frame( height: 150, alignment: .leading)
+                            .clipped()
+                            .cornerRadius(200)
+                            
+                    } placeholder: {
+                        Rectangle()
+                            .aspectRatio(1/1, contentMode: .fit)
+                            .cornerRadius(200)
+                            .frame( height: 150, alignment: .leading)
+                            .background(Color(UIColor.secondarySystemBackground))
+                    }.padding(20)
+                    
+                    VStack(alignment: .leading) {
+                        Text(vm.displayName)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                        HStack(alignment: .lastTextBaseline, spacing: 0) {
+                            Text(String(vm.followerCount))
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Spacer().frame(width: 3)
+                            Text("followers")
+                                .font(.subheadline)
+                                .fontWeight(.regular)
+                                .foregroundColor(Color(UIColor.secondaryLabel))
+                        }
+                    }
+                    
+                    Spacer()
                 }
-                .navigationTitle("Profile")
-                .padding(.horizontal, 20)
-                .padding(.top, 20.0)
-                .frame(minWidth: 0, maxWidth: .infinity)
+                Divider().background(Color.accentColor)
+                Spacer()
             }
-        }.onAppear() {
-            vm.getProfile()
+            .navigationTitle("Profile")
+            .padding(.horizontal, 20)
+            .padding(.top, 20.0)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .onAppear() {
+                vm.getProfile()
+            }
         }
     }
 }

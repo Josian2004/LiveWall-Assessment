@@ -21,7 +21,7 @@ class ProfileService {
             
             var images: [Profile_Image] = []
             profileDTO?.images.forEach({image in
-                images.append(Profile_Image(url: image.url, height: image.height, width: image.width))
+                images.append(Profile_Image(url: image.url, height: image.height ?? 0, width: image.width ?? 0))
             })
             
             let profile:Profile = Profile(

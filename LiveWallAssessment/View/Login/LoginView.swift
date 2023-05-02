@@ -74,10 +74,34 @@ struct LoginView: View {
     
     
     var body: some View {
-        Button {
-            showWebView.toggle()
-        } label: {
-            Text("Login")
+        VStack() {
+            Spacer()
+            Text("Assessment")
+                .font(.system(size: 60, weight: .bold))
+                .padding(.vertical, 0)
+                .padding(.top, 30)
+            Text("for LiveWall")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .foregroundColor(Color(UIColor.secondaryLabel))
+                .padding(.vertical, 0)
+            Divider().background(Color.accentColor).padding(.horizontal, 30)
+            Text("by Josian van Efferen")
+                .padding(.top, 10)
+                .fontWeight(.semibold)
+                .font(.body)
+                .foregroundColor(Color.accentColor)
+            Spacer()
+            Button() {
+                showWebView.toggle()
+            } label: {
+                Text("Login with Spotify")
+                    .padding(.horizontal, 30)
+                    .padding(.vertical, 5)
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .padding(.bottom, 20)
         }
         .sheet(isPresented: $showWebView) {
             WebView(url: authManager.getAuthorizationUrl(), authManager: vm, showWebView: $showWebView, showLoginPage: $showLoginPage)

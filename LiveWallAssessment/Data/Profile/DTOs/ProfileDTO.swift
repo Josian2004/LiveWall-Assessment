@@ -24,6 +24,6 @@ struct Profile_FollowersDTO: Codable {
 
 struct Profile_ImageDTO: Codable {
     let url: String
-    let height: Int
-    let width: Int
+    let height: Int?
+    let width: Int?
 }

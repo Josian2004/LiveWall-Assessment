@@ -31,7 +31,7 @@ class ProfileViewModel: ObservableObject {
                     self.displayName = profile!.display_name
                     self.followerCount = profile!.followers
                     self.product = profile!.product
-                    //self.profileImageUrl = profile!.images[0].url
+                    self.profileImageUrl = profile!.images[0].url
                 }
             }
             
