@@ -27,8 +27,8 @@ Spotify_ClientId = CLIENT_ID
 ```
 
 ### Step 5
-The app should now build and launch on your test device, if it still can't find the secret and id, make sure that your project uses *Secrets.xcconfig* as a configuration during debug and release. This can be found under LiveWallAssessment.xcodeproj -> configurations.  
-
+You need to tell the project to use *Secrets.xcconfig* as a configuration during debug and release. This can be found under LiveWallAssessment.xcodeproj -> configurations.  
+The app should now build and launch on your device.
 
 
 If you're still facing issues with the installation, feel free to contact me!
