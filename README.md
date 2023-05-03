@@ -1,7 +1,9 @@
 # Assessment for LiveWall
 ## About
 This app was made as an assessment for a Mobile Development Internship at LiveWall Tilburg.
-You can see a detailed summary of the app on my [portfolio](https://josian.nl).
+You can see a detailed summary of the app on my [portfolio](https://josian.nl).  
+
+The app isn't perfect, there are some small bugs or things that don't work as smoothly as I would have wanted but it is an accurate representation of my skills and with more time I could have fixed these things.
 
 ## Installation instructions 
 The app is not available in the AppStore so you need to clone this repository and change some things to make it work.
